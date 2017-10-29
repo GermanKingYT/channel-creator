@@ -1,0 +1,15 @@
+﻿  plugin.cpp
+plugin.cpp(220): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(90): note: see declaration of 'strcat'
+plugin.cpp(230): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(90): note: see declaration of 'strcat'
+plugin.cpp(227): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+plugin.cpp(269): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(453): note: see declaration of 'strtok'
+plugin.cpp(288): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(453): note: see declaration of 'strtok'
+  LINK : C:\Users\PC\Desktop\hhhh\Plugins\channelcreator\pluginsdk\src\x64\Release\channel creator.dll not found or not built by the last incremental link; performing full link
+     Creating library C:\Users\PC\Desktop\hhhh\Plugins\channelcreator\pluginsdk\src\x64\Release\channel creator.lib and object C:\Users\PC\Desktop\hhhh\Plugins\channelcreator\pluginsdk\src\x64\Release\channel creator.exp
+  test_plugin.vcxproj -> C:\Users\PC\Desktop\hhhh\Plugins\channelcreator\pluginsdk\src\x64\Release\channel creator.dll
+  test_plugin.vcxproj -> C:\Users\PC\Desktop\hhhh\Plugins\channelcreator\pluginsdk\src\x64\Release\channel creator.pdb (Full PDB)
