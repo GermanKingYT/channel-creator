@@ -216,7 +216,7 @@ char* std_channelname;
 void channelcreator(uint64 serverConnectionHandlerID,  char* channelname, char* channelpw = "",int talkpower = 22) {
 
 	bool istChannelNameFrei = false;
-	char wantedChannelName[100] = "";
+	char wantedChannelName[TS3_MAX_CHANNEL_NAME] = "";
 	strcat(wantedChannelName, channelname);
 	
 
@@ -235,7 +235,7 @@ void channelcreator(uint64 serverConnectionHandlerID,  char* channelname, char* 
 	std_channelname = wantedChannelName;
 	std_talkpower = talkpower;
 
-	// Channel mit gültigem Namen erstellen
+	// Channel mit gÃ¼ltigem Namen erstellen
 
 	ts3Functions.setChannelVariableAsString(serverConnectionHandlerID, 0, CHANNEL_NAME, wantedChannelName);
 	ts3Functions.setChannelVariableAsInt(serverConnectionHandlerID, 0, CHANNEL_NEEDED_TALK_POWER, talkpower);
@@ -472,11 +472,13 @@ void ts3plugin_onChannelMoveEvent(uint64 serverConnectionHandlerID, uint64 chann
 void ts3plugin_onUpdateChannelEvent(uint64 serverConnectionHandlerID, uint64 channelID) {
 }
 
-anyID editor1;
-anyID editor2;
+
 
 void ts3plugin_onUpdateChannelEditedEvent(uint64 serverConnectionHandlerID, uint64 channelID, anyID invokerID, const char* invokerName, const char* invokerUniqueIdentifier) {
 
+	static anyID editor1;
+ 	static anyID editor2;
+	
 	anyID myID;
 	ts3Functions.getClientID(serverConnectionHandlerID, &myID);
 	uint64 mychannelID; 
@@ -491,6 +493,7 @@ void ts3plugin_onUpdateChannelEditedEvent(uint64 serverConnectionHandlerID, uint
 		ts3Functions.getChannelVariableAsString(serverConnectionHandlerID, mychannelID, CHANNEL_NAME, &std_channelname);
 		ts3Functions.getChannelVariableAsInt(serverConnectionHandlerID, mychannelID, CHANNEL_NEEDED_TALK_POWER, &std_talkpower);
 		ts3Functions.getChannelVariableAsInt(serverConnectionHandlerID, mychannelID, CHANNEL_CODEC_QUALITY, &std_codec_quality);
+		
 		ts3Functions.getChannelVariableAsInt(serverConnectionHandlerID, mychannelID, CHANNEL_MAXCLIENTS, &std_channel_max_clients);
 		return;
 	}
@@ -503,10 +506,11 @@ void ts3plugin_onUpdateChannelEditedEvent(uint64 serverConnectionHandlerID, uint
 
 	editor1 = invokerID;
 
-
+	
 	//ts3Functions.setChannelVariableAsString(serverConnectionHandlerID, mychannelID, CHANNEL_NAME, std_channelname);
 	ts3Functions.setChannelVariableAsInt(serverConnectionHandlerID, mychannelID, CHANNEL_NEEDED_TALK_POWER, std_talkpower);
 	ts3Functions.setChannelVariableAsInt(serverConnectionHandlerID, mychannelID, CHANNEL_CODEC_QUALITY, std_codec_quality);
+	ts3Functions.setChannelVariableAsInt(serverConnectionHandlerID, mychannelID, CHANNEL_FLAG_MAXCLIENTS_UNLIMITED, 0);
 	ts3Functions.setChannelVariableAsInt(serverConnectionHandlerID, mychannelID, CHANNEL_MAXCLIENTS, std_channel_max_clients);
 	ts3Functions.flushChannelUpdates(serverConnectionHandlerID, mychannelID, NULL);
 
